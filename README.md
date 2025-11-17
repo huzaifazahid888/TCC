@@ -1,20 +1,20 @@
-# Fire Control Computer (FCS)
+# **Trajectory Control Computer (TCC)**
 
 ##  Objective
-The **Fire Control Computer (FCS)** is a critical embedded computing unit designed to calculate **real-time ballistic firing solutions** for the main battle tank.  
-Its primary objective was to process sensor data (environmental, mechanical, and ballistic) and compute **accurate azimuth and elevation corrections** for the gun to ensure high first-round hit probability under varying environmental and terrain conditions.
+The **Trajectory Control Computer (TCC)** is a critical embedded computing unit designed to calculate **real-time ballistic firing solutions**.  
+Its primary objective was to process sensor data (environmental, mechanical, and ballistic) and compute **accurate azimuth and elevation corrections** to ensure high first-round hit probability under varying environmental and terrain conditions.
 
 ---
 
 ##  Project Overview
-The FCS acts as the **brain of the fire control system**, interfacing with multiple subsystems such as:
+The TCC acts as the **brain of the control system**, interfacing with multiple subsystems such as:
 - **Laser rangefinder**
 - **Gyroscopes & inclinometers**
 - **Charge temperature & muzzle velocity sensors**
 - **Barometric & ambient sensors**
-- **Gun Control Box (GCB)** via CAN bus  
+- **Actuator Control Unit** via CAN bus  
 
-The system continuously processes this data through **ballistic models**, applies **real-time compensation algorithms**, and sends corrected commands to the GCB for precise targeting and stabilization.
+The system continuously processes this data through **ballistic models**, applies **real-time compensation algorithms**, and sends corrected commands for precise targeting and stabilization.
 
 ---
 
@@ -23,9 +23,9 @@ The system continuously processes this data through **ballistic models**, applie
 - Implementation of **multi-sensor data fusion**, filtering, and calibration routines.  
 - Development of **interpolation-based ballistic tables** with environmental compensation.  
 - Design of **real-time control loops** ensuring sub-millisecond data handling.  
-- Implementation of **CAN communication** between FCS and GCB for trajectory synchronization.  
+- Implementation of **CAN communication** between TCC and actuator controller for trajectory synchronization.  
 - Optimization of algorithm execution time and memory usage under deterministic constraints.  
-- Validation of results through **tank field trials and trajectory testing**.  
+- Validation of results through **field trials and trajectory testing**.  
 
 ---
 
@@ -42,12 +42,6 @@ The system continuously processes this data through **ballistic models**, applie
 
 ---
 
-## ⚙️ System Architecture
-
-**Block Diagram:**
-
----
-
 ##  Implementation Summary
 - Implemented **Kalman-style filtering** to smooth noisy sensor inputs (gyro, rangefinder, pressure).  
 - Designed **ballistic computation modules** performing:
@@ -56,15 +50,15 @@ The system continuously processes this data through **ballistic models**, applie
   - Temperature & altitude compensation  
 - Developed **lookup-table interpolation system** for ballistic curves across multiple charge and ammunition types.  
 - Implemented **safety and diagnostic routines** for sensor faults and out-of-bound readings.  
-- Integrated **CAN-based feedback loop** to synchronize with GCB for servo control updates.
+- Integrated **CAN-based feedback loop** to synchronize with the actuator controller for servo control updates.
 
 ---
 
 ##  Results & Testing
-- Achieved **>85% first-round hit probability** during tank field trials.  
+- Achieved **>85% first-round hit probability** during field trials.  
 - Demonstrated **stable and repeatable ballistic performance** across environmental variations.  
 - Reduced computational latency to under **1.5 ms per firing cycle**.  
-- System validated through **simulated trajectories in MATLAB** and **live tank tests**.  
+- System validated through **simulated trajectories in MATLAB** and **live field tests**.
 
 ---
 
@@ -73,4 +67,3 @@ The system continuously processes this data through **ballistic models**, applie
 Embedded Systems Designer | Islamabad, Pakistan  
 📧 [huzaifazahid888@gmail.com](mailto:huzaifazahid888@gmail.com)  
 🔗 [linkedin.com/in/huzaifa-engineer](https://linkedin.com/in/huzaifa-engineer)
-
